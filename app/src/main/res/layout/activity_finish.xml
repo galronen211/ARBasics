@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FinishActivity">
+
+    <TextView
+        android:id="@+id/deathText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="You Died!"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/newScoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="New Score: 0"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/deathText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deathText" />
+
+    <TextView
+        android:id="@+id/currRankText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Current Rank:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/deathText"
+        app:layout_constraintStart_toStartOf="@+id/deathText"
+        app:layout_constraintTop_toBottomOf="@+id/newScoreText" />
+
+    <TextView
+        android:id="@+id/newRankText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Platinum Balloon Popper"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/currRankText"
+        app:layout_constraintStart_toStartOf="@+id/currRankText"
+        app:layout_constraintTop_toBottomOf="@+id/currRankText" />
+
+    <Button
+        android:id="@+id/againButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play Again!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newRankText"
+        app:layout_constraintVertical_bias="0.35000002" />
+
+    <Button
+        android:id="@+id/backHomeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Home"
+        app:layout_constraintEnd_toEndOf="@+id/againButton"
+        app:layout_constraintStart_toStartOf="@+id/againButton"
+        app:layout_constraintTop_toBottomOf="@+id/againButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>

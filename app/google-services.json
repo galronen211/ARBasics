@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "1090328624511",
+    "firebase_url": "https://arballoons-a1acb.firebaseio.com",
+    "project_id": "arballoons-a1acb",
+    "storage_bucket": "arballoons-a1acb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090328624511:android:f64f1604f8d6a4f3346e4a",
+        "android_client_info": {
+          "package_name": "com.android.arbasics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1090328624511-d9jae19d4707ueurek05nm5fkc35k8ji.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVOfLQmih156mjB6zzmyDxo0aq2r47opw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1090328624511-d9jae19d4707ueurek05nm5fkc35k8ji.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090328624511:android:8e431068d73a8451346e4a",
+        "android_client_info": {
+          "package_name": "com.example.arbasics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1090328624511-d9jae19d4707ueurek05nm5fkc35k8ji.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVOfLQmih156mjB6zzmyDxo0aq2r47opw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1090328624511-d9jae19d4707ueurek05nm5fkc35k8ji.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

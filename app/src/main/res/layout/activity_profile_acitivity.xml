@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileAcitivity">
+
+    <ImageView
+        android:id="@+id/userPic"
+        android:layout_width="273dp"
+        android:layout_height="194dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user_pic"
+        tools:srcCompat="@drawable/user_pic" />
+
+    <TextView
+        android:id="@+id/usernameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="NAME"
+        app:layout_constraintEnd_toEndOf="@+id/userPic"
+        app:layout_constraintStart_toStartOf="@+id/userPic"
+        app:layout_constraintTop_toBottomOf="@+id/userPic" />
+
+    <TextView
+        android:id="@+id/statsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Stats"
+        app:layout_constraintEnd_toEndOf="@+id/userPic"
+        app:layout_constraintStart_toStartOf="@+id/userPic"
+        app:layout_constraintTop_toBottomOf="@+id/usernameText" />
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Score:"
+        app:layout_constraintEnd_toEndOf="@+id/statsText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/statsText" />
+
+    <TextView
+        android:id="@+id/gamesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Games:"
+        app:layout_constraintStart_toStartOf="@+id/scoreText"
+        app:layout_constraintTop_toBottomOf="@+id/scoreText" />
+
+    <TextView
+        android:id="@+id/rankText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="RANK:"
+        app:layout_constraintEnd_toEndOf="@+id/statsText"
+        app:layout_constraintStart_toStartOf="@+id/statsText"
+        app:layout_constraintTop_toBottomOf="@+id/gamesText" />
+
+    <TextView
+        android:id="@+id/userrankText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Diamond"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/rankText"
+        app:layout_constraintStart_toStartOf="@+id/rankText"
+        app:layout_constraintTop_toBottomOf="@+id/rankText"
+        app:layout_constraintVertical_bias="0.19999999" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
