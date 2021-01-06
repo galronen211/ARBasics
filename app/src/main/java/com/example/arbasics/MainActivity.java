@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.Display;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         buildBulletModel();
 
 
-        Button shoot = findViewById(R.id.shootButton);
+        ImageView shoot = findViewById(R.id.shootImage);
         startTimer();
         shoot.setOnClickListener(v -> {
             shoot();

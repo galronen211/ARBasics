@@ -1,16 +1,21 @@
 package com.example.arbasics;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Objects;
 
 public class HomepageActivity extends AppCompatActivity {
 
@@ -32,22 +37,31 @@ public class HomepageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
         mAuth = FirebaseAuth.getInstance();
+        CurrentUserSingleton.getInstance().ConnectSingleton();
+        CurrentUserSingleton.getInstance().setLogout(false);
 
-        Button playBtn = findViewById(R.id.playButton);
+        ImageView playBtn = findViewById(R.id.playPicture);
         playBtn.setOnClickListener(v -> {
             play();
         });
-        Button leaderBtn = findViewById(R.id.leaderButton);
+        ImageView leaderBtn = findViewById(R.id.leaderPicture);
         leaderBtn.setOnClickListener(v -> {
             leader();
         });
-        Button logoutBtn = findViewById(R.id.logoutButton);
+        ImageView logoutBtn = findViewById(R.id.logOutPicture);
         logoutBtn.setOnClickListener(v -> {
             logout();
         });
         ImageView profileBtn = findViewById(R.id.profilePicture);
         profileBtn.setOnClickListener(v -> {
             viewProfile();
+        });
+        TextView name = findViewById(R.id.usernameText);
+        name.setText(Objects.requireNonNull(mAuth.getCurrentUser()).getEmail());
+
+        ImageView infoBtn = findViewById(R.id.infoPicture);
+        infoBtn.setOnClickListener(v -> {
+            startActivity(new Intent(this, info.class));
         });
 
     }
@@ -63,6 +77,7 @@ public class HomepageActivity extends AppCompatActivity {
 
     public void logout() {
         FirebaseAuth.getInstance().signOut();
+        CurrentUserSingleton.getInstance().setLogout(true);
         startActivity(new Intent(this, LoginActivity.class));
         finish();
     }

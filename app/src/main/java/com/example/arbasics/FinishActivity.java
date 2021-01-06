@@ -20,14 +20,13 @@ import java.util.Objects;
 
 public class FinishActivity extends AppCompatActivity {
 
-    private long scoreVal;
+    private CurrentUserSingleton instance = CurrentUserSingleton.getInstance();
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finish);
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference("Users/" + Objects.requireNonNull(mAuth.getCurrentUser()).getUid());
 
 
         Button againBtn = findViewById(R.id.againButton);
@@ -45,31 +44,21 @@ public class FinishActivity extends AppCompatActivity {
 
         TextView score = findViewById(R.id.newScoreText);
         TextView rank = findViewById(R.id.newRankText);
-        database.addListenerForSingleValueEvent(new ValueEventListener() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                scoreVal = (long) dataSnapshot.child("score").getValue();
-                score.setText("New Score: " + scoreVal);
-                if (scoreVal < 1000) {
-                    rank.setText("Bronze Balloon Popper");
-                } else if (scoreVal < 2000) {
-                    rank.setText("Silver Balloon Popper");
-                } else if (scoreVal < 3000) {
-                    rank.setText("Gold Balloon Popper");
-                } else if (scoreVal < 4000) {
-                    rank.setText("Platinum Balloon Popper");
-                } else if (scoreVal < 5000) {
-                    rank.setText("Diamond Balloon Popper");
-                } else {
-                    rank.setText("Master Balloon Popper");
-                }
-            }
+        long scoreVal = instance.getScore();
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        score.setText("New Score: " + scoreVal);
+        if (scoreVal < 1000) {
+            rank.setText("Bronze Balloon Popper");
+        } else if (scoreVal < 2000) {
+            rank.setText("Silver Balloon Popper");
+        } else if (scoreVal < 3000) {
+            rank.setText("Gold Balloon Popper");
+        } else if (scoreVal < 4000) {
+            rank.setText("Platinum Balloon Popper");
+        } else if (scoreVal < 5000) {
+            rank.setText("Diamond Balloon Popper");
+        } else {
+            rank.setText("Master Balloon Popper");
+        }
     }
 }
