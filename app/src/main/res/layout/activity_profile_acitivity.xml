@@ -7,7 +7,7 @@
     tools:context=".ProfileAcitivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/profileBackgroundImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,7 +16,7 @@
         app:srcCompat="@drawable/backother" />
 
     <ImageView
-        android:id="@+id/userPic"
+        android:id="@+id/porfilePictureImageView"
         android:layout_width="273dp"
         android:layout_height="194dp"
         android:layout_marginTop="64dp"
@@ -27,70 +27,68 @@
         tools:srcCompat="@drawable/user_pic" />
 
     <TextView
-        android:id="@+id/usernameText"
+        android:id="@+id/homeUsernameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="NAME"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/userPic"
-        app:layout_constraintStart_toStartOf="@+id/userPic"
-        app:layout_constraintTop_toBottomOf="@+id/userPic" />
+        app:layout_constraintEnd_toEndOf="@+id/porfilePictureImageView"
+        app:layout_constraintStart_toStartOf="@+id/porfilePictureImageView"
+        app:layout_constraintTop_toBottomOf="@+id/porfilePictureImageView" />
 
     <TextView
-        android:id="@+id/statsText"
+        android:id="@+id/profileStatsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Stats"
+        android:text="@string/user_stats_text"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/userPic"
-        app:layout_constraintStart_toStartOf="@+id/userPic"
-        app:layout_constraintTop_toBottomOf="@+id/usernameText" />
+        app:layout_constraintEnd_toEndOf="@+id/porfilePictureImageView"
+        app:layout_constraintStart_toStartOf="@+id/porfilePictureImageView"
+        app:layout_constraintTop_toBottomOf="@+id/homeUsernameTextView" />
 
     <TextView
-        android:id="@+id/scoreText"
+        android:id="@+id/profileScoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Score:"
+        android:text="@string/user_score_text"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/statsText"
+        app:layout_constraintEnd_toEndOf="@+id/profileStatsTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/statsText" />
+        app:layout_constraintTop_toBottomOf="@+id/profileStatsTextView" />
 
     <TextView
-        android:id="@+id/gamesText"
+        android:id="@+id/profileGamesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Games:"
+        android:text="@string/user_games_text"
         android:textColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/scoreText"
-        app:layout_constraintTop_toBottomOf="@+id/scoreText" />
+        app:layout_constraintStart_toStartOf="@+id/profileScoreTextView"
+        app:layout_constraintTop_toBottomOf="@+id/profileScoreTextView" />
 
     <TextView
-        android:id="@+id/rankText"
+        android:id="@+id/profileRankTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="RANK:"
+        android:text="@string/user_rank_text"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/statsText"
-        app:layout_constraintStart_toStartOf="@+id/statsText"
-        app:layout_constraintTop_toBottomOf="@+id/gamesText" />
+        app:layout_constraintEnd_toEndOf="@+id/profileStatsTextView"
+        app:layout_constraintStart_toStartOf="@+id/profileStatsTextView"
+        app:layout_constraintTop_toBottomOf="@+id/profileGamesTextView" />
 
     <TextView
-        android:id="@+id/userrankText"
+        android:id="@+id/profileCurrentRankTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Diamond"
         android:textColor="#FFFFFF"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/rankText"
-        app:layout_constraintStart_toStartOf="@+id/rankText"
-        app:layout_constraintTop_toBottomOf="@+id/rankText"
+        app:layout_constraintEnd_toEndOf="@+id/profileRankTextView"
+        app:layout_constraintStart_toStartOf="@+id/profileRankTextView"
+        app:layout_constraintTop_toBottomOf="@+id/profileRankTextView"
         app:layout_constraintVertical_bias="0.19999999" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

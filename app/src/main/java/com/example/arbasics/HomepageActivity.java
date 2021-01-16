@@ -1,11 +1,8 @@
 package com.example.arbasics;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,28 +37,28 @@ public class HomepageActivity extends AppCompatActivity {
         CurrentUserSingleton.getInstance().ConnectSingleton();
         CurrentUserSingleton.getInstance().setLogout(false);
 
-        ImageView playBtn = findViewById(R.id.playPicture);
+        ImageView playBtn = findViewById(R.id.homePlayImageView);
         playBtn.setOnClickListener(v -> {
             play();
         });
-        ImageView leaderBtn = findViewById(R.id.leaderPicture);
+        ImageView leaderBtn = findViewById(R.id.homeLeaderboardImageView);
         leaderBtn.setOnClickListener(v -> {
-            leader();
+            showLeaderboard();
         });
-        ImageView logoutBtn = findViewById(R.id.logOutPicture);
+        ImageView logoutBtn = findViewById(R.id.homeLogOutImageView);
         logoutBtn.setOnClickListener(v -> {
             logout();
         });
-        ImageView profileBtn = findViewById(R.id.profilePicture);
+        ImageView profileBtn = findViewById(R.id.homeProfileImageView);
         profileBtn.setOnClickListener(v -> {
             viewProfile();
         });
-        TextView name = findViewById(R.id.usernameText);
+        TextView name = findViewById(R.id.homeUsernameTextView);
         name.setText(Objects.requireNonNull(mAuth.getCurrentUser()).getEmail());
 
-        ImageView infoBtn = findViewById(R.id.infoPicture);
+        ImageView infoBtn = findViewById(R.id.homeInfoImageView);
         infoBtn.setOnClickListener(v -> {
-            startActivity(new Intent(this, info.class));
+            startActivity(new Intent(this, InfoActivity.class));
         });
 
     }
@@ -71,7 +68,7 @@ public class HomepageActivity extends AppCompatActivity {
         finish();
     }
 
-    public void leader() {
+    public void showLeaderboard() {
         startActivity(new Intent(this, LeaderboardActivity.class));
     }
 

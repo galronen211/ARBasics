@@ -6,17 +6,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.Objects;
 
 public class FinishActivity extends AppCompatActivity {
 
@@ -29,7 +19,7 @@ public class FinishActivity extends AppCompatActivity {
         setContentView(R.layout.activity_finish);
 
 
-        Button againBtn = findViewById(R.id.againButton);
+        Button againBtn = findViewById(R.id.playAgainButton);
         againBtn.setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
             finish();
@@ -42,8 +32,8 @@ public class FinishActivity extends AppCompatActivity {
         });
 
 
-        TextView score = findViewById(R.id.newScoreText);
-        TextView rank = findViewById(R.id.newRankText);
+        TextView score = findViewById(R.id.deathScoreTextView);
+        TextView rank = findViewById(R.id.deathNewRankTextView);
         long scoreVal = instance.getScore();
 
         score.setText("New Score: " + scoreVal);

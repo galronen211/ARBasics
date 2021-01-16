@@ -22,7 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="1"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="@+id/profilePic_widget"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,8 +34,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:text="Name"
         app:layout_constraintStart_toEndOf="@+id/profilePic_widget"
         app:layout_constraintTop_toTopOf="@+id/profilePic_widget" />
 
@@ -45,9 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginBottom="8dp"
-        android:text="5:40"
         app:layout_constraintBottom_toBottomOf="@+id/profilePic_widget"
         app:layout_constraintStart_toEndOf="@+id/profilePic_widget" />
 

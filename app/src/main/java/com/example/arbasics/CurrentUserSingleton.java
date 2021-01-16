@@ -20,10 +20,6 @@ public class CurrentUserSingleton {
     private boolean logout = false;
     private static CurrentUserSingleton instance = new CurrentUserSingleton();
 
-    private CurrentUserSingleton() {
-        ConnectSingleton();
-    }
-
     public void ConnectSingleton() {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("Users/" + Objects.requireNonNull(mAuth.getCurrentUser()).getUid());
@@ -63,4 +59,9 @@ public class CurrentUserSingleton {
     public long getGames() {
         return games;
     }
+
+    private CurrentUserSingleton() {
+        ConnectSingleton();
+    }
+
 }

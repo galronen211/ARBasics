@@ -7,17 +7,17 @@
     tools:context=".HomepageActivity">
 
     <ImageView
-        android:id="@+id/background"
+        android:id="@+id/homeBackgroundImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/uiImage"
-        app:layout_constraintEnd_toEndOf="@+id/uiImage"
-        app:layout_constraintStart_toStartOf="@+id/uiImage"
-        app:layout_constraintTop_toTopOf="@+id/uiImage"
+        app:layout_constraintBottom_toBottomOf="@+id/homeUserInterfaceImageView"
+        app:layout_constraintEnd_toEndOf="@+id/homeUserInterfaceImageView"
+        app:layout_constraintStart_toStartOf="@+id/homeUserInterfaceImageView"
+        app:layout_constraintTop_toTopOf="@+id/homeUserInterfaceImageView"
         app:srcCompat="@drawable/background" />
 
     <ImageView
-        android:id="@+id/uiImage"
+        android:id="@+id/homeUserInterfaceImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,7 +27,7 @@
         app:srcCompat="@drawable/ui" />
 
     <ImageView
-        android:id="@+id/profilePicture"
+        android:id="@+id/homeProfileImageView"
         android:layout_width="51dp"
         android:layout_height="48dp"
         android:layout_marginStart="50dp"
@@ -39,7 +39,7 @@
         tools:srcCompat="@drawable/user" />
 
     <ImageView
-        android:id="@+id/infoPicture"
+        android:id="@+id/homeInfoImageView"
         android:layout_width="50dp"
         android:layout_height="47dp"
         android:layout_marginEnd="50dp"
@@ -49,7 +49,7 @@
         app:srcCompat="@drawable/info" />
 
     <ImageView
-        android:id="@+id/playPicture"
+        android:id="@+id/homePlayImageView"
         android:layout_width="58dp"
         android:layout_height="85dp"
         android:layout_marginBottom="78dp"
@@ -60,7 +60,7 @@
         app:srcCompat="@drawable/play" />
 
     <ImageView
-        android:id="@+id/logOutPicture"
+        android:id="@+id/homeLogOutImageView"
         android:layout_width="33dp"
         android:layout_height="41dp"
         android:layout_marginTop="16dp"
@@ -70,7 +70,7 @@
         app:srcCompat="@drawable/logout" />
 
     <TextView
-        android:id="@+id/usernameText"
+        android:id="@+id/homeUsernameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -81,12 +81,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/leaderPicture"
+        android:id="@+id/homeLeaderboardImageView"
         android:layout_width="41dp"
         android:layout_height="39dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/logOutPicture"
+        app:layout_constraintEnd_toStartOf="@+id/homeLogOutImageView"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/trophy" />
 

@@ -7,58 +7,57 @@
     tools:context=".FinishActivity">
 
     <TextView
-        android:id="@+id/deathText"
+        android:id="@+id/deathTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        android:text="You Died!"
+        android:text="@string/death_text"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/newScoreText"
+        android:id="@+id/deathScoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="New Score: 0"
+        android:text="@string/new_score_text"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/deathText"
+        app:layout_constraintEnd_toEndOf="@+id/deathTextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deathText" />
+        app:layout_constraintTop_toBottomOf="@+id/deathTextView" />
 
     <TextView
-        android:id="@+id/currRankText"
+        android:id="@+id/deathCurrentRankTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Current Rank:"
+        android:text="@string/current_rank_text"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/deathText"
-        app:layout_constraintStart_toStartOf="@+id/deathText"
-        app:layout_constraintTop_toBottomOf="@+id/newScoreText" />
+        app:layout_constraintEnd_toEndOf="@+id/deathTextView"
+        app:layout_constraintStart_toStartOf="@+id/deathTextView"
+        app:layout_constraintTop_toBottomOf="@+id/deathScoreTextView" />
 
     <TextView
-        android:id="@+id/newRankText"
+        android:id="@+id/deathNewRankTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Platinum Balloon Popper"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/currRankText"
-        app:layout_constraintStart_toStartOf="@+id/currRankText"
-        app:layout_constraintTop_toBottomOf="@+id/currRankText" />
+        app:layout_constraintEnd_toEndOf="@+id/deathCurrentRankTextView"
+        app:layout_constraintStart_toStartOf="@+id/deathCurrentRankTextView"
+        app:layout_constraintTop_toBottomOf="@+id/deathCurrentRankTextView" />
 
     <Button
-        android:id="@+id/againButton"
+        android:id="@+id/playAgainButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play Again!"
+        android:text="@string/play_again_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newRankText"
+        app:layout_constraintTop_toBottomOf="@+id/deathNewRankTextView"
         app:layout_constraintVertical_bias="0.35000002" />
 
     <Button
@@ -66,8 +65,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Home"
-        app:layout_constraintEnd_toEndOf="@+id/againButton"
-        app:layout_constraintStart_toStartOf="@+id/againButton"
-        app:layout_constraintTop_toBottomOf="@+id/againButton" />
+        android:text="@string/home_button"
+        app:layout_constraintEnd_toEndOf="@+id/playAgainButton"
+        app:layout_constraintStart_toStartOf="@+id/playAgainButton"
+        app:layout_constraintTop_toBottomOf="@+id/playAgainButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,6 @@ import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Display;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,17 +41,17 @@ public class MainActivity extends AppCompatActivity {
     private ModelRenderable bulletRenderable;
     private int balloonsLeft;
     private Point point;
-    private TextView balloonsLeftTxt;
-    private TextView lvlText;
     private int lvl;
-    private ExecutorService es = Executors.newSingleThreadExecutor();
     private int seconds;
-    private TextView timer;
     private boolean done;
     private DatabaseReference database;
     private FirebaseAuth mAuth;
     private long addScore;
-    // private Frame frame;
+
+    private final TextView timer = findViewById(R.id.currentTimeTextView);
+    private final ExecutorService es = Executors.newSingleThreadExecutor();
+    private final TextView balloonsLeftTxt = findViewById(R.id.ballonsCountTextView);
+    private final TextView lvlText = findViewById(R.id.currentLevelTextView);
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -64,16 +63,12 @@ public class MainActivity extends AppCompatActivity {
         lvl = 1;
         balloonsLeft = 2;
         seconds = 10;
-        timer = findViewById(R.id.timeText);
         done = false;
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
 
-        balloonsLeftTxt = findViewById(R.id.ballonsCountText);
-        lvlText = findViewById(R.id.lvlText);
         CustomARFragment arFragment =
                 (CustomARFragment) getSupportFragmentManager().findFragmentById(R.id.arFragment);
-
 
         assert arFragment != null;
         scene = arFragment.getArSceneView().getScene();
@@ -82,43 +77,12 @@ public class MainActivity extends AppCompatActivity {
         addBalloonsToScene();
         buildBulletModel();
 
-
-        ImageView shoot = findViewById(R.id.shootImage);
+        ImageView shoot = findViewById(R.id.shootImageView);
         startTimer();
         shoot.setOnClickListener(v -> {
             shoot();
         });
-
-        // updateBalloonsText();
-
-
     }
-
-    /*
-    private void updateBalloonsText() {
-        new Thread(() -> {
-            runOnUiThread(() -> {
-                Session session = null;
-                try {
-                    session = new Session(this);
-                } catch (UnavailableArcoreNotInstalledException | UnavailableApkTooOldException | UnavailableSdkTooOldException | UnavailableDeviceNotCompatibleException e) {
-                    e.printStackTrace();
-                }
-                try {
-                    assert session != null;
-                    frame = session.update();
-                } catch (CameraNotAvailableException e) {
-                    e.printStackTrace();
-                }
-
-                for(Anchor anchor : frame.getUpdatedAnchors()) {
-                    System.out.println(anchor.getCloudAnchorId());
-                }
-
-            });
-        }).start();
-    }
-    */
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @SuppressLint("SetTextI18n")
@@ -180,7 +144,6 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void startTimer() {
         Runnable runnable = () -> {
-            timer = findViewById(R.id.timeText);
             while (balloonsLeft > 0 && seconds > 0 && !done) {
                 try {
                     Thread.sleep(1000);
@@ -206,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
                             String name = (String) dataSnapshot.child("name").getValue();
                             long games = (long) dataSnapshot.child("games").getValue();
                             long score = (long) dataSnapshot.child("score").getValue();
-                            database.setValue(new User(name, games + 1, score + addScore));
+                            database.setValue(new User(name, score + addScore));
                             done[0] = true;
                         }
 

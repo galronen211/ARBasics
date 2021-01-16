@@ -16,7 +16,7 @@ import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
-    DatabaseReference database;
+    private DatabaseReference database;
     private FirebaseAuth mAuth;
 
     @Override
@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
                             database = FirebaseDatabase.getInstance().getReference("Users/" + Objects.requireNonNull(mAuth.getCurrentUser()).getUid());
-                            database.setValue(new User(email, 0, 0));
+                            database.setValue(new User(email, 0));
                             startActivity(new Intent(LoginActivity.this, HomepageActivity.class));
                             finish();
                         } else {

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="1080px"
     android:layout_height="2400px"
-    tools:context=".info">
+    tools:context=".InfoActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/infoBackgroundImageView"
         android:layout_width="677dp"
         android:layout_height="1188dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,12 +17,12 @@
         app:srcCompat="@drawable/backother" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/infoTextView"
         android:layout_width="392dp"
         android:layout_height="412dp"
         android:lineSpacingExtra="8sp"
         android:padding="8dp"
-        android:text="Welcome to BLLOON POPPER AR, This game is an Artificial Reality based game where you'll use your camera in order to pop blloons. The goal of the game is to pop as many blloons as possible, climbing up the ladder and trying to become the best. In order to start playing, tap the play button on the bottom of your screen in the main screen."
+        android:text="@string/info_text"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
@@ -30,6 +30,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/infoBackgroundImageView"
         app:layout_constraintVertical_bias="0.52" />
 </androidx.constraintlayout.widget.ConstraintLayout>

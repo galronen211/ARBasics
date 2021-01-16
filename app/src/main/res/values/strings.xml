@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">ARBasics</string>
+    <string name="death_text">You died!</string>
+    <string name="new_score_text">New score: 0</string>
+    <string name="current_rank_text">Current rank:</string>
+    <string name="info_text">Welcome to BLLOON POPPER AR, This game is an Artificial Reality based game where you\'ll use your camera in order to pop blloons. The goal of the game is to pop as many blloons as possible, climbing up the ladder and trying to become the best. In order to start playing, tap the play button on the bottom of your screen in the main screen.</string>
+    <string name="leaderboard_text">LEADERBOARD</string>
+    <string name="login_page_text">Login</string>
+    <string name="user_stats_text">Stats</string>
+    <string name="user_score_text">Score:</string>
+    <string name="user_games_text">Games:</string>
+    <string name="user_rank_text">RANK</string>
+    <string name="current_level_text">Level 1</string>
+    <string name="current_time_text">0:0</string>
+    <string name="current_score_text">Score: 0</string>
+
+    <string name="home_button">HOME</string>
+    <string name="play_again_button">PLAY AGAIN!</string>
+    <string name="login_button">LOGIN</string>
+    <string name="register_button">REGISTER</string>
+
+    <string name="email_hint">XXXXX@gmail.com</string>
+    <string name="password_hint">*******</string>
 </resources>
