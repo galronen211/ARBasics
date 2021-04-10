@@ -1,14 +1,17 @@
-package com.example.arbasics;
+package com.example.arbasics.screens;
 
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.arbasics.R;
+import com.example.arbasics.db.Repository;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -16,14 +19,13 @@ import java.util.Objects;
 
 public class HomepageActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+    private Repository instance = Repository.getInstance();
 
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser == null) {
+        if (!instance.getSignedIn()) {
             startActivity(new Intent(this, LoginActivity.class));
             finish();
         }
@@ -33,9 +35,6 @@ public class HomepageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
-        mAuth = FirebaseAuth.getInstance();
-        CurrentUserSingleton.getInstance().ConnectSingleton();
-        CurrentUserSingleton.getInstance().setLogout(false);
 
         ImageView playBtn = findViewById(R.id.homePlayImageView);
         playBtn.setOnClickListener(v -> {
@@ -53,18 +52,16 @@ public class HomepageActivity extends AppCompatActivity {
         profileBtn.setOnClickListener(v -> {
             viewProfile();
         });
-        TextView name = findViewById(R.id.homeUsernameTextView);
-        name.setText(Objects.requireNonNull(mAuth.getCurrentUser()).getEmail());
 
         ImageView infoBtn = findViewById(R.id.homeInfoImageView);
         infoBtn.setOnClickListener(v -> {
-            startActivity(new Intent(this, InfoActivity.class));
+            startActivity(new Intent(this, GameInfoActivity.class));
         });
 
     }
 
     public void play() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, GameActivity.class));
         finish();
     }
 
@@ -73,8 +70,7 @@ public class HomepageActivity extends AppCompatActivity {
     }
 
     public void logout() {
-        FirebaseAuth.getInstance().signOut();
-        CurrentUserSingleton.getInstance().setLogout(true);
+        instance.signOut();
         startActivity(new Intent(this, LoginActivity.class));
         finish();
     }

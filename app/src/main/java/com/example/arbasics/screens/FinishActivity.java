@@ -1,4 +1,4 @@
-package com.example.arbasics;
+package com.example.arbasics.screens;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -8,9 +8,13 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.arbasics.R;
+import com.example.arbasics.db.Repository;
+import com.example.arbasics.models.User;
+
 public class FinishActivity extends AppCompatActivity {
 
-    private CurrentUserSingleton instance = CurrentUserSingleton.getInstance();
+    private User instance = Repository.getInstance().getCurrentUser();
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -21,7 +25,7 @@ public class FinishActivity extends AppCompatActivity {
 
         Button againBtn = findViewById(R.id.playAgainButton);
         againBtn.setOnClickListener(v -> {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, GameActivity.class));
             finish();
         });
 
@@ -32,23 +36,23 @@ public class FinishActivity extends AppCompatActivity {
         });
 
 
-        TextView score = findViewById(R.id.deathScoreTextView);
-        TextView rank = findViewById(R.id.deathNewRankTextView);
+        TextView death_score_text_view = findViewById(R.id.deathScoreTextView);
+        TextView deathNewRankTV = findViewById(R.id.deathNewRankTextView);
         long scoreVal = instance.getScore();
 
-        score.setText("New Score: " + scoreVal);
+        death_score_text_view.setText("New Score: " + scoreVal);
         if (scoreVal < 1000) {
-            rank.setText("Bronze Balloon Popper");
+            deathNewRankTV.setText("Bronze Balloon Popper");
         } else if (scoreVal < 2000) {
-            rank.setText("Silver Balloon Popper");
+            deathNewRankTV.setText("Silver Balloon Popper");
         } else if (scoreVal < 3000) {
-            rank.setText("Gold Balloon Popper");
+            deathNewRankTV.setText("Gold Balloon Popper");
         } else if (scoreVal < 4000) {
-            rank.setText("Platinum Balloon Popper");
+            deathNewRankTV.setText("Platinum Balloon Popper");
         } else if (scoreVal < 5000) {
-            rank.setText("Diamond Balloon Popper");
+            deathNewRankTV.setText("Diamond Balloon Popper");
         } else {
-            rank.setText("Master Balloon Popper");
+            deathNewRankTV.setText("Master Balloon Popper");
         }
     }
 }

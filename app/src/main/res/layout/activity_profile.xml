@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="1080px"
     android:layout_height="2400px"
-    tools:context=".ProfileAcitivity">
+    tools:context=".screens.ProfileAcitivity">
 
     <ImageView
         android:id="@+id/profileBackgroundImageView"

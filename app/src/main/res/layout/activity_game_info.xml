@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="1080px"
     android:layout_height="2400px"
-    tools:context=".InfoActivity">
+    tools:context=".screens.GameInfoActivity">
 
     <ImageView
         android:id="@+id/infoBackgroundImageView"

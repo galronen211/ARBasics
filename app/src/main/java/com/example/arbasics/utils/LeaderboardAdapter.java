@@ -1,4 +1,4 @@
-package com.example.arbasics;
+package com.example.arbasics.utils;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.arbasics.R;
+import com.example.arbasics.models.User;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
@@ -30,7 +32,7 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
     @NonNull
     @Override
     public LeaderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View ldrView = LayoutInflater.from(ctx).inflate(R.layout.leaderboarditem, parent, false);
+        View ldrView = LayoutInflater.from(ctx).inflate(R.layout.item_leaderboard, parent, false);
         return new LeaderViewHolder(ldrView);
     }
 

@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".screens.GameActivity">
 
     <fragment
         android:id="@+id/arFragment"
-        android:name="com.example.arbasics.CustomARFragment"
+        android:name="com.example.arbasics.utils.CleanArFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

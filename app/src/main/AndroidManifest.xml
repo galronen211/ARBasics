@@ -13,19 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InfoActivity"></activity>
-        <activity android:name=".FinishActivity" />
-        <activity android:name=".ProfileAcitivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".LeaderboardActivity" />
-        <activity android:name=".HomepageActivity">
+        <activity android:name=".screens.GameInfoActivity"></activity>
+        <activity android:name=".screens.FinishActivity" />
+        <activity android:name=".screens.ProfileAcitivity" />
+        <activity android:name=".screens.LoginActivity" />
+        <activity android:name=".screens.LeaderboardActivity" />
+        <activity android:name=".screens.HomepageActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".screens.GameActivity" />
 
         <meta-data
             android:name="com.google.ar.core"

@@ -1,4 +1,4 @@
-package com.example.arbasics;
+package com.example.arbasics.utils;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.google.ar.sceneform.ux.ArFragment;
 
-public class CustomARFragment extends ArFragment {
+public class CleanArFragment extends ArFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

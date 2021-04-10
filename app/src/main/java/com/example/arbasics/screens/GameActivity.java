@@ -1,4 +1,4 @@
-package com.example.arbasics;
+package com.example.arbasics.screens;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.arbasics.utils.CleanArFragment;
+import com.example.arbasics.R;
+import com.example.arbasics.models.User;
 import com.google.ar.sceneform.Camera;
 import com.google.ar.sceneform.Node;
 import com.google.ar.sceneform.Scene;
@@ -34,13 +37,13 @@ import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class MainActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity {
 
     private Scene scene;
     private Camera camera;
     private ModelRenderable bulletRenderable;
     private int balloonsLeft;
-    private Point point;
+    private Point anchorPoint;
     private int lvl;
     private int seconds;
     private boolean done;
@@ -48,27 +51,27 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private long addScore;
 
-    private final TextView timer = findViewById(R.id.currentTimeTextView);
+    private final TextView currentTimeTv = findViewById(R.id.currentTimeTextView);
     private final ExecutorService es = Executors.newSingleThreadExecutor();
-    private final TextView balloonsLeftTxt = findViewById(R.id.ballonsCountTextView);
-    private final TextView lvlText = findViewById(R.id.currentLevelTextView);
+    private final TextView balloonsCountTv = findViewById(R.id.ballonsCountTextView);
+    private final TextView currentLevelTv = findViewById(R.id.currentLevelTextView);
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Display display = getWindowManager().getDefaultDisplay();
-        point = new Point();
-        display.getRealSize(point);
+        anchorPoint = new Point();
+        display.getRealSize(anchorPoint);
         lvl = 1;
         balloonsLeft = 2;
         seconds = 10;
         done = false;
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_game);
         mAuth = FirebaseAuth.getInstance();
 
-        CustomARFragment arFragment =
-                (CustomARFragment) getSupportFragmentManager().findFragmentById(R.id.arFragment);
+        CleanArFragment arFragment =
+                (CleanArFragment) getSupportFragmentManager().findFragmentById(R.id.arFragment);
 
         assert arFragment != null;
         scene = arFragment.getArSceneView().getScene();
@@ -88,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("SetTextI18n")
     private void shoot() {
 
-        Ray ray = camera.screenPointToRay(point.x / 2f, point.y / 2f);
+        Ray ray = camera.screenPointToRay(anchorPoint.x / 2f, anchorPoint.y / 2f);
         Node node = new Node();
         node.setRenderable(bulletRenderable);
         scene.addChild(node);
@@ -109,16 +112,16 @@ public class MainActivity extends AppCompatActivity {
 
                         balloonsLeft--;
                         addScore++;
-                        balloonsLeftTxt.setText("Score: " + addScore);
+                        balloonsCountTv.setText("Score: " + addScore);
                         scene.removeChild(nodeInContact);
                         if (balloonsLeft == 0) {
                             done = true;
                             lvl++;
                             balloonsLeft = 2 + lvl / 2;
                             seconds = 10 + lvl / 2;
-                            timer.setText((seconds / 60) + ":" + (seconds % 60));
+                            currentTimeTv.setText((seconds / 60) + ":" + (seconds % 60));
                             addBalloonsToScene();
-                            lvlText.setText("Level " + lvl);
+                            currentLevelTv.setText("Level " + lvl);
                             done = false;
                             startTimer();
                         }
@@ -156,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 int minutesPassed = seconds / 60;
                 int secondsPassed = seconds % 60;
 
-                runOnUiThread(() -> timer.setText(minutesPassed + ":" + secondsPassed));
+                runOnUiThread(() -> currentTimeTv.setText(minutesPassed + ":" + secondsPassed));
             }
             if (seconds <= 0) {
                 es.shutdownNow();
@@ -167,7 +170,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (!done[0]) {
                             String name = (String) dataSnapshot.child("name").getValue();
-                            long games = (long) dataSnapshot.child("games").getValue();
                             long score = (long) dataSnapshot.child("score").getValue();
                             database.setValue(new User(name, score + addScore));
                             done[0] = true;
